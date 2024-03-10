@@ -1,4 +1,6 @@
+
 import { useState } from 'react';
+import RandomMobiles from '../components/RandomMobiles';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,6 +23,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Meta from '../components/Meta';
 import { addToCart } from '../slices/cartSlice';
+// import ProductRecommendations from '../components/ProductRecommendations';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -211,6 +214,7 @@ const ProductScreen = () => {
                       >
                         Submit
                       </Button>
+                      {<h1> Recommended products for you!</h1>}
                     </Form>
                   ) : (
                     <Message>
@@ -220,6 +224,9 @@ const ProductScreen = () => {
                 </ListGroup.Item>
               </ListGroup>
             </Col>
+          </Row>
+          <Row md={10}>
+          <RandomMobiles />
           </Row>
         </>
       )}
